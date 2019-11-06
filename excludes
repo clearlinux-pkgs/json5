@@ -1,2 +1,13 @@
 # This file contains the output files that need %exclude. Full path
 # names, one per line.
+/usr/lib/python3*/site-packages/README.md
+/usr/lib/python3*/site-packages/tests/__init__.py
+/usr/lib/python3*/site-packages/tests/__pycache__/__init__.cpython-3*.pyc
+/usr/lib/python3*/site-packages/tests/__pycache__/host_fake.cpython-3*.pyc
+/usr/lib/python3*/site-packages/tests/__pycache__/host_test.cpython-3*.pyc
+/usr/lib/python3*/site-packages/tests/__pycache__/lib_test.cpython-3*.pyc
+/usr/lib/python3*/site-packages/tests/__pycache__/tool_test.cpython-3*.pyc
+/usr/lib/python3*/site-packages/tests/host_fake.py
+/usr/lib/python3*/site-packages/tests/host_test.py
+/usr/lib/python3*/site-packages/tests/lib_test.py
+/usr/lib/python3*/site-packages/tests/tool_test.py

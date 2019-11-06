@@ -4,7 +4,7 @@
 #
 Name     : json5
 Version  : 0.8.5
-Release  : 1
+Release  : 3
 URL      : https://files.pythonhosted.org/packages/d4/68/e182f2c6e8d672dbf368a06640ccfc0fb64ef181f721ec29c16d9c383f98/json5-0.8.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d4/68/e182f2c6e8d672dbf368a06640ccfc0fb64ef181f721ec29c16d9c383f98/json5-0.8.5.tar.gz
 Summary  : A Python implementation of the JSON5 data format.
@@ -17,11 +17,7 @@ Requires: json5-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-# pyjson5
 A Python implementation of the JSON5 data format.
-[JSON5](https://json5.org) extends the
-[JSON](http://www.json.org) data interchange format to make it
-slightly more usable as a configuration language:
 
 %package bin
 Summary: bin components for the json5 package.
@@ -60,14 +56,14 @@ python3 components for the json5 package.
 
 %prep
 %setup -q -n json5-0.8.5
+cd %{_builddir}/json5-0.8.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567897312
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1574715408
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -83,11 +79,23 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/json5
-cp LICENSE %{buildroot}/usr/share/package-licenses/json5/LICENSE
+cp %{_builddir}/json5-0.8.5/LICENSE %{buildroot}/usr/share/package-licenses/json5/c700a8b9312d24bdc57570f7d6a131cf63d89016
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
+## Remove excluded files
+rm -f %{buildroot}/usr/lib/python3*/site-packages/README.md
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__init__.py
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/__init__.cpython-3*.pyc
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/host_fake.cpython-3*.pyc
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/host_test.cpython-3*.pyc
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/lib_test.cpython-3*.pyc
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/tool_test.cpython-3*.pyc
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/host_fake.py
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/host_test.py
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/lib_test.py
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/tool_test.py
 
 %files
 %defattr(-,root,root,-)
@@ -98,7 +106,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/json5/LICENSE
+/usr/share/package-licenses/json5/c700a8b9312d24bdc57570f7d6a131cf63d89016
 
 %files python
 %defattr(-,root,root,-)
