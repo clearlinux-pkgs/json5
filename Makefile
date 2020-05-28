@@ -1,5 +1,5 @@
 PKG_NAME := json5
-URL = https://files.pythonhosted.org/packages/91/06/fd24717500706cfe979f387daa220eb30b8632684de84083c1e4699ff440/json5-0.9.4.tar.gz
+URL = https://files.pythonhosted.org/packages/8d/b4/d09c00cb7bc88b17118be48f94d4b8d0ce7b572690625ca2b5477e05ce0e/json5-0.9.5.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
