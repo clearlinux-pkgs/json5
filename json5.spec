@@ -4,7 +4,7 @@
 #
 Name     : json5
 Version  : 0.9.5
-Release  : 12
+Release  : 13
 URL      : https://files.pythonhosted.org/packages/8d/b4/d09c00cb7bc88b17118be48f94d4b8d0ce7b572690625ca2b5477e05ce0e/json5-0.9.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/8d/b4/d09c00cb7bc88b17118be48f94d4b8d0ce7b572690625ca2b5477e05ce0e/json5-0.9.5.tar.gz
 Summary  : A Python implementation of the JSON5 data format.
