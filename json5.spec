@@ -4,7 +4,7 @@
 #
 Name     : json5
 Version  : 0.9.6
-Release  : 26
+Release  : 27
 URL      : https://files.pythonhosted.org/packages/20/8c/66cde351ffff609a0bd7176e42f698781128bbcb3f28e00a6a857aa7af34/json5-0.9.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/20/8c/66cde351ffff609a0bd7176e42f698781128bbcb3f28e00a6a857aa7af34/json5-0.9.6.tar.gz
 Summary  : A Python implementation of the JSON5 data format.
@@ -68,15 +68,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1624373792
+export SOURCE_DATE_EPOCH=1635744458
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -90,17 +90,17 @@ echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 ## Remove excluded files
-rm -f %{buildroot}/usr/lib/python3*/site-packages/README.md
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__init__.py
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/__init__.cpython-3*.pyc
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/host_fake.cpython-3*.pyc
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/host_test.cpython-3*.pyc
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/lib_test.cpython-3*.pyc
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/tool_test.cpython-3*.pyc
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/host_fake.py
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/host_test.py
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/lib_test.py
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/tool_test.py
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/README.md
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/__init__.py
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/__pycache__/__init__.cpython-3*.pyc
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/__pycache__/host_fake.cpython-3*.pyc
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/__pycache__/host_test.cpython-3*.pyc
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/__pycache__/lib_test.cpython-3*.pyc
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/__pycache__/tool_test.cpython-3*.pyc
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/host_fake.py
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/host_test.py
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/lib_test.py
+rm -f %{buildroot}*/usr/lib/python3*/site-packages/tests/tool_test.py
 
 %files
 %defattr(-,root,root,-)
